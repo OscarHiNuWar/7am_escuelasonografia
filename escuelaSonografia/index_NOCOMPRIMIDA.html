@@ -1,0 +1,448 @@
+<!doctype html>
+<html>
+<!-- Escuela de Sonografia -->
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/template.css">
+    
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="js/gmaps.js"></script>
+    <script src="js/scripts.js"></script>
+    
+    <script>
+    $(document).ready(function() {
+        
+        $("#enviar_doppler").click(function() {
+            $.post($("#doppler").attr("action"), $("#doppler").serialize(),
+              function(data) {
+    			$(".enviado").fadeIn(200);
+                //$(".hola").append(data);
+                
+    			
+              });
+    		 
+          });
+		  
+		  $("#enviar_abdomen").click(function() {
+            $.post($("#abdomen").attr("action"), $("#abdomen").serialize(),
+              function(data) {
+    			$(".enviado").fadeIn(200);
+                //$(".hola").append(data);
+                
+    			
+              });
+    		 
+          });
+		  
+
+		$("#enviar_esqueleto").click(function() {
+            $.post($("#esqueleto").attr("action"), $("#esqueleto").serialize(),
+              function(data) {
+    			$(".enviado").fadeIn(200);
+                //$(".hola").append(data);
+                
+    			
+              });
+    		 
+          });
+
+		  
+    	  
+      });
+    
+    </script>
+    
+</head>
+<body> 
+<div class="enviado" style="display:none; width:100%; height:50px; background-color: #01a538;
+    padding: 10px 0 10px 0px; font-family: ClearSans-Thin; font-size: 28px; text-align: center; color: white;">Su mensaje ha sido enviado. Les informaremos en días laborales de 8 am a 5:30 pm.</div>
+<div class="content-light-art">
+    	<div class="content-content">
+       
+        <!--AQUI ADENTRO VA EL CONTENIDO-->
+        
+            <div class="content-menu1-art ocultar">
+                <div class="contenido-menu">
+                <div id="general menu" class="centraliza">Sonografía General</div>
+                <div class="alineo-textoBorde">
+                    <div class="over-modulos">Módulo de Abdomen
+                        <br>
+                        4 Meses*
+                    </div>
+                    <div class="over-modulos">Módulo Obstétrico y Pélvico
+                        <br>
+                        4 Meses*
+                    </div>
+                    <div class="over-modulos">Módulo de Partes Blandas*
+                        <br>
+                        3 Meses*
+                    </div>
+                    <div class="over-modulos">Introducción al Doppler
+                        <br>
+                        1 Mes*
+                    </div>
+                    
+                    
+            <div class="sinfondo-volador">Duración: 12 Meses</div>
+                <div class="financia">
+                    <div class="boton-amarillo">* Se pueden tomar individual</div>
+                    <div class="boton-amarillo">Financiamiento disponible</div>
+                </div>
+                    
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="contenido-formulario">
+                    
+                <form action="mail.php" method="post" id="abdomen">
+                    <div class="informacion-negrita">¿Necesitas más información?</div>
+                    <div class="informacion-liviana">Envíanos tus datos y un representante se <br> comunicara con usted</div>
+                    
+                       <input placeholder="Nombre" type="text" name="name_control" />
+                        <br />
+                        <input placeholder="Teléfono" type="text" name="tel_control" />
+                        <br />
+                        <input placeholder="E-mail" type="text" name="email_control"  />
+                    
+                    <a href="#" id="enviar_abdomen"><div class="boton-volador over-modulos">Enviar Información</div></a>
+                    
+         </form> 
+                </div>
+                
+        </div>
+   
+    <div class="content-menu2-art ocultar">
+        <div class="contenido-menu">
+        <div class="doppler centraliza" id="menu-selected">Doppler a Color</div>
+        <div class="alineo-textoBorde">
+            <div class="over-modulos">Módulo Doppler Obstétrico y Ginecológico
+                <br>
+                2 Meses*</div>
+            <div class="over-modulos">Módulo Doppler Abdominal
+                <br>
+                2 Meses*</div>
+            <div class="over-modulos">Módulo Doppler Vascular Periférico <br>
+                3 Meses*
+            </div>
+            
+            <div class="sinfondo-volador">Duración: 7 Meses</div>
+            
+            <div class="financia">
+                    <div class="boton-amarillo">*Se puede tomar individual</div>
+                    <div class="boton-amarillo">Financiamiento disponible</div>
+                </div>
+        </div>
+        
+        
+        </div>
+        
+        <div class="contenido-formulario">
+                    
+                <form action="mail.php" method="post" id="doppler">
+                    <div class="informacion-negrita">¿Necesitas más información?</div>
+                    <div class="informacion-liviana">Envianos tus datos y un representante se <br> comunicara con usted</div>
+                    
+                       <input placeholder="Nombre" type="text" name="name_control" />
+                        <br />
+                        <input placeholder="Teléfono" type="text" name="tel_control" />
+                        <br />
+                        <input placeholder="E-mail" type="text" name="email_control"  />
+                        
+                   
+                    
+                  <a href="#" id="enviar_doppler"><div class="boton-volador over-modulos">Enviar Información</div></a>
+                    
+         </form> 
+                </div>
+                
+    </div>
+        
+    <div class="content-menu3-art ocultar">
+        <div class="contenido-menu">
+        <div id="general menu" class="centraliza">Músculo Esquelético</div>
+        <div class="alineo-textoBorde">
+            <div class="over-modulos">Estudio de Hombro 
+                <br>
+                1 Mes
+            </div>
+            <div class="over-modulos">Estudio de Codo
+                <br>
+                1 Mes
+            </div>
+            <div class="over-modulos">Estudio de Rodilla y Cadera
+                <br>
+                1 Mes
+            </div>
+            <div class="over-modulos">Estudio de Tobillo
+                <br>
+                1 Mes
+            </div>
+            <div class="over-modulos">Estudio de Mano y Muñeca
+                <br>
+                1 Mes
+            </div>
+            <div class="sinfondo-volador">Duración: 5 Meses</div>
+            
+            <div class="financia">
+                    <div class="boton-amarillo">Financiamiento disponible</div>
+                </div>
+            </div>
+        </div>
+        
+            <div class="contenido-formulario">
+                <form action="mail.php" method="post" id="esqueleto">
+                <div class="informacion-negrita">¿Necesitas más información?</div>
+                    <div class="informacion-liviana">Envianos tus datos y un representante se 
+comunicara con usted</div>
+                    
+                       <input placeholder="Nombre" type="text" name="name_control" />
+                        <br />
+                        <input placeholder="Teléfono" type="text" name="tel_control" />
+                        <br />
+                        <input placeholder="E-mail" type="text" name="email_control" />
+                        <br />
+                    <a href="#" id="enviar_esqueleto"><div class="boton-volador over-modulos">Enviar Información</div></a>
+         </form> 
+                </div>
+        
+        
+            
+    </div>
+            
+    <div class="content-formulario-art ocultar">
+        <div class="contenido-despedida">
+            
+            <div class="contenedor-imgdespedida">
+                <div class="img-despedida"></div>
+            </div>
+            
+            <div class="content-form">
+                <form action=".mailofertas.php" method="post" >
+                    <div class="cursodiplo">¡Espera! Aún hay más...</div>
+                    <div class="desp-texto">Recibe un 5% de descuento en cualquiera de los módulos al 
+                    completar nuestro formulario.<br>
+                    <strong class="negrita">¡No pierdas tiempo!</strong></div>
+                    <div class="separame">
+                       <input placeholder="Nombre" type="text" name="name_control" />
+                        <br />
+                        <input placeholder="Teléfono" type="text" name="tel_control" />
+                        <br />
+                        <input placeholder="E-mail" type="text" name="email_control"  />
+                    </div>
+                    <a href="#"><div class="boton-voladordespe over-modulos">Enviar Información</div></a>
+                    
+                </form>
+            </div>
+                </div>   
+    </div> 
+            
+            
+            
+        </div>
+        <!--DIV CERRAR NO SE TOCA-->
+        <div class="content-cerrar"></div>
+        <!---->
+    </div>
+
+
+
+
+<header>
+    <div id="contenedor-header">
+        
+        <div id="logo-contacto">
+            <div id="logo"><img src="images/logo.png"></div>
+                
+                <div id="contenedor-boton">
+            <div id="llamanos">
+                <div>¡Llámanos!</div>
+            <div class="alineo">   
+                <div class="boton-llamanos">809.331.6999</div>
+                <div id="ext">Ext. 235</div>   
+            </div>
+                </div> 
+                </div>
+        </div> 
+        
+        <div id="img-cursos">
+            <div id="imgcurso"></div>
+            <div class="texto">
+            <div id="cursodiplo">Cursos & Diplomados</div>
+            <div class="contenedor-texto-inicio">
+                <div id="sonografia">Sonografía General, Doppler a Color y Musculo Esquelético</div>
+            <div id="para">para Médicos y Estudiantes de Medicina.</div>
+                 </div>
+            </div>
+        </div>
+    </div>
+        
+</header>
+
+
+    
+<div id="contenedor-body">
+    
+    <div class="menu">
+        <div id="general">Sonografía General</div>
+        <div>
+            <div class="modulos">Módulo de Abdomen
+                <br>
+                4 Meses*
+            </div>
+            <div class="modulos">Módulo Obstétrico y Pélvico
+                <br>
+                4 Meses*
+            </div>
+            <div class="modulos">Módulo de Partes Blandas*
+            <br>
+                3 Meses*
+            </div>
+        </div>
+        <div class="contenedor-botones">
+            <a href="#" name="menu1" class="mas" onclick="return false;"><div class="boton-meses">Ver más</div></a>
+        </div>
+    </div>
+   
+    <div class="menu-selected">
+        <div class="doppler">Doppler a Color</div>
+        <div >
+            <div class="color-modulos">Módulo Doppler Obstétrico y Ginecológico
+                <br>
+                2 Meses*</div>
+            <div class="color-modulos">Módulo Doppler Abdominal
+                <br>
+                2 Meses*</div>
+            <div class="color-modulos">Módulo Doppler Vascular Periférico <br>
+                3 Meses*
+            </div>
+        </div>
+        <div class="contenedor-botones">
+            <a href="#" name="menu2" class="mas" onclick="return false;"><div class="boton-meses">Ver más</div></a>
+        </div>
+    </div>
+        
+    <div class="menu3">
+        <div id="general">Musculo Esquelético</div>
+        <div >
+            <div class="color-modulos">Estudio de Hombro 
+                <br>
+                1 Mes
+            </div>
+            <div class="color-modulos">Estudio de Codo
+                <br>
+                1 Mes
+            </div>
+            <div class="color-modulos">Estudio de Rodilla y Cadera
+                <br>
+                1 Mes
+            </div>
+           <!-- <div class="color-modulos">Estudio de Tobillo
+                <br>
+                1 Mes
+            </div>
+            <div class="color-modulos">Estudio de Mano y Muñeca
+                <br>
+                1 Mes
+            </div>-->
+            </div>
+        <div class="contenedor-botones">
+            <a href="#" name="menu3" class="mas" onclick="return false;"><div class="boton-meses">Ver más</div></a>
+        </div>   
+    </div>
+   
+    
+    
+    
+</div>
+    
+    <div id="contenedor-imgcursos">
+			<div id="fondo">
+            <div class="contenedor-medio">
+				<div id="otro-cursodiplo">Cursos & Diplomados</div>
+                <div class="otro-sonografia">Abre un nuevo camino al conocimiento de la Sonografía, te invitamos a formar
+                parte de nuestra docencia, nunca
+                es tarde para aprender algo nuevo.</div>
+                
+                <!--<a href="#" name="formulario" class="mas-in" onclick="return false;"><div class="otro-boton-meses">Inscripciones disponibles</div></a>-->
+            </div>
+			</div>
+    </div>
+    
+    <div id="contenedor-aulas"> 
+        <div id="aulas">
+            <div id="txt-contenedor">
+                
+			     
+                <div id="txtconoscan">Conozcan Nuestras Aulas</div>
+                
+                <div class="txtconozcan">Nuestros talleres prácticos cuentan con equipos de última tecnología.</div>
+            </div>
+			<div class="img-aulas">
+				<img class="width-img" src="images/aula1.jpg">
+				<img class="width-img" src="images/aula2.jpg">
+                <img class="width-img" src="images/aula3.jpg">
+                <img class="width-img" src="images/aula4.jpg">
+			</div>
+        </div>
+        
+        <div class="otro-curso">
+            <div class="contenedor-medioCurso">
+            <div id="otro-txtaulas">Testimonios</div>
+			<div id="otro-txtconoscan">Nuestros estudiantes cuentan su experiencia</div>
+            <!-- <img class="tamanio-tel" src="images/telefono.jpg"> -->
+            <iframe class="video-ajuste" width="80%" height="315" src="https://www.youtube.com/embed/yUbZdl7Z92U" frameborder="0" allowfullscreen></iframe>
+                
+            </div>
+				
+        </div>
+    </div>
+    
+<div id="footery">
+	<div id="contenedor-informacion">
+        <div id="contactos">
+            <div id="informacion">Información de Contactos</div><br>
+            <div id="texto">&iexcl;No pierdas tiempo, contáctanos ahora!</div>
+        </div>
+	</div>
+	<div id="contenedor-contactos">
+		<div id="contenedor-telefono">
+			<div class="escudito"><img src="images/escudito.png"></div>
+                <div class="alinea">
+			     <div id="telefono">Teléfono</div>
+                 <div id="numero">809.331.6999</div>
+                </div>
+		</div>
+		
+		<div id="contenedor-ubicacion">
+			<div class="escudito"><img src="images/escudito.png"></div>
+			     
+            <div id="contenedor-calle">
+                
+                <div id="ub">Ubicación</div>
+                <div class="ubicacion">Respaldo Bellas Artes,</div>
+                <div class="ubicacion">10149 Santo Domingo.</div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="cuadro">
+    
+        <a href="https://www.facebook.com/sonografiard" target="_blank"><div class="facesprite"></div></a>
+        <a href="https://www.instagram.com/sonografiard/" target="_blank"><div class="instasprite"></div></a>
+        <a href="https://twitter.com/sonografiassd" target="_blank"><div class="twitsprite"></div></a>
+    </div>
+    
+	<div id="contenedor-mapa">
+		<div id="mapa"></div>
+	</div>
+	</div>
+
+
+<footer>
+
+</footer>
+</body>
+</html>
